@@ -1,5 +1,4 @@
 package com.Matthew.Fitness_center;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Trainer {
@@ -15,13 +14,13 @@ public class Trainer {
 
     public Trainer(String name, int age, String email, String specialization, int years_in_ourGym, int years_of_experience, int salary){
         this.trainer_id = trainer_id_count;
-        this.name = name;
-        this.age = age;
-        this.email = email;
-        this.specialization = specialization;
-        this.salary = salary;
-        this.years_in_ourGym = years_in_ourGym;
-        this.years_of_experience = years_of_experience;
+        setName(name);
+        setAge(age);
+        setEmail(email);
+        setSpecialization(specialization);
+        setSalary(salary);
+        setYears_in_ourGym(years_in_ourGym);
+        setYears_of_experience(years_of_experience);
         trainer_id_count++;
     }
 
@@ -30,7 +29,13 @@ public class Trainer {
     }
 
     public void setYears_in_ourGym(int years_in_ourGym){
-        this.years_in_ourGym = years_in_ourGym;
+        if (years_in_ourGym >= 0) {
+            this.years_in_ourGym = years_in_ourGym;
+        }
+        else{
+            System.out.println("Invalid input for (years_in_our_gym). It is set to 0 by default");
+            this.years_in_ourGym = 0;
+        }
     }
 
     public double getSalary(){
@@ -38,7 +43,13 @@ public class Trainer {
     }
 
     public void setSalary(double salary){
-        this.salary = salary;
+        if (salary >= 0){
+            this.salary = salary;
+        }
+        else{
+            System.out.println("Invalid input for salary. It is set to 150000 by default");
+            this.salary = 150000;
+        }
     }
 
     public int getYears_of_experience(){
@@ -46,7 +57,13 @@ public class Trainer {
     }
 
     public void setYears_of_experience(int years_of_experience){
-        this.years_of_experience = years_of_experience;
+        if(years_of_experience >= 0){
+            this.years_of_experience = years_of_experience;
+        }
+        else{
+            System.out.println("invalid input for years_of_experience. It is set to 0 by default");
+            this.years_of_experience = 0;
+        }
     }
 
     public int getTrainer_id(){
@@ -58,7 +75,13 @@ public class Trainer {
     }
 
     public void setName(String name){
-        this.name = name;
+        if (name != null && !name.trim().isEmpty()){
+            this.name = name;
+        }
+        else{
+            this.name = "Unknown";
+            System.out.println("Invalid input for Name. It was set to Unknown");
+        }
     }
 
     public int getAge(){
@@ -66,7 +89,14 @@ public class Trainer {
     }
 
     public void setAge(int age){
-        this.age = age;
+        if (age >= 0){
+            this.age = age;
+        }
+        else{
+            this.age = 18;
+            System.out.println("Invalid input for age. It was set to 18 by default");
+        }
+
     }
 
     public String getEmail(){
@@ -74,7 +104,13 @@ public class Trainer {
     }
 
     public void setEmail(String email){
-        this.email = email;
+        if (email.contains("@")){
+            this.email = email;
+        }
+        else{
+            this.email = "Unknown";
+            System.out.println("Invalid input for email. It was set to Unknown");
+        }
     }
 
     public String getSpecialization(){
@@ -82,7 +118,13 @@ public class Trainer {
     }
 
     public void setSpecialization(String specialization){
-        this.specialization = specialization;
+        if (specialization != null && !specialization.trim().isEmpty()){
+            this.specialization = specialization;
+        }
+        else{
+            this.specialization = "Unknown";
+            System.out.println("Invalid input for specialization. It was set to Unknown by default");
+        }
     }
 
     public void salaryRaise(Trainer trainer){

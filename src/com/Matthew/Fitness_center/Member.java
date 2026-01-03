@@ -9,9 +9,9 @@ public class Member {
 
     public Member(String name, int age, String email){
         this.id = id_count;
-        this.name = name;
-        this.age = age;
-        this.email = email;
+        setName(name);
+        setAge(age);
+        setEmail(email);
         id_count++;
     }
     public int getId (){
@@ -21,21 +21,39 @@ public class Member {
         return name;
     }
     public void setName(String name){
-        this.name = name;
+        if (name != null && !name.trim().isEmpty()){
+            this.name = name;
+        }
+        else{
+            System.out.println("The input for name is not valid, name is set to empty string");
+            this.name = "InvaildName";
+        }
     }
     public int getAge(){
         return age;
     }
     public void setAge(int age){
-        this.age = age;
+        if (age > 0){
+            this.age = age;
+        }
+        else{
+            System.out.println("age cannot be negative. Age is set to 0");
+            this.age = 0;
+        }
     }
     public String getEmail(){
         return email;
     }
     public void setEmail(String email){
-        this.email = email;
+        if (email.contains("@")){
+            this.email = email;
+        }
+        else{
+            System.out.println("Invalid email. Must contain @ symbol. Email is set to InvalidEmail");
+            this.email = "InvalidEmail";
+        }
     }
-};
+}
 
 
 
