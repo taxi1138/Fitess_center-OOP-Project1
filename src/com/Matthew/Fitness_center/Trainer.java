@@ -1,14 +1,16 @@
 package com.Matthew.Fitness_center;
 import java.util.Scanner;
 
+import static com.Matthew.Fitness_center.Main.Trainers;
+
 public class Trainer {
     private int trainer_id;
-    private String name;
-    private int age;
+    protected String name;
+    protected int age;
     private String email;
-    private String specialization;
-    private int years_of_experience;
-    private int years_in_ourGym;
+    protected String specialization;
+    protected int years_of_experience;
+    protected int years_in_ourGym;
     private static int trainer_id_count = 1;
     private double salary;
 
@@ -23,6 +25,7 @@ public class Trainer {
         setYears_of_experience(years_of_experience);
         trainer_id_count++;
     }
+
 
     public int getYears_in_ourGym(){
         return years_in_ourGym;
@@ -145,4 +148,20 @@ public class Trainer {
         }
 
     }
+    public void checkExperience() {
+        if (years_of_experience > 5) {
+            System.out.println(name + " is an experienced trainer.");
+        } else {
+            System.out.println(name + " is still building experience.");
+        }
+    }
+
+    public void checkSalary() {
+        if (salary > 150000) {
+            System.out.println(name + " has a high salary.");
+        } else {
+            System.out.println(name + " has a standard salary.");
+        }
+    }
+
 }
