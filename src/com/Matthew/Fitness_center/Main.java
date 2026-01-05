@@ -327,7 +327,15 @@ public class Main {
             System.out.println(Trainers.size() + " Trainers were found:");
             for (int i = 0; i<Trainers.size(); i++){
                 Trainer trainer = Trainers.get(i);
-                System.out.println(trainer.getTrainer_id()+";"+trainer.getName()+";"+trainer.getAge()+";"+trainer.getEmail()+";"+trainer.getSpecialization()+";"+trainer.getYears_of_experience()+";"+trainer.getYears_in_ourGym()+";"+trainer.getSalary());
+                if (trainer instanceof PersonalTrainer pt){
+                    System.out.println("[Personal Trainer]"+pt.getTrainer_id()+";"+pt.getName()+";"+pt.getAge()+";"+pt.getEmail()+";"+pt.getSpecialization()+";"+pt.getYears_of_experience()+";"+pt.getYears_in_ourGym()+";"+pt.getSalary());
+                }
+                else if (trainer instanceof GroupTrainer gp){
+                    System.out.println("[Group Trainer]"+gp.getTrainer_id()+";"+gp.getName()+";"+gp.getAge()+";"+gp.getEmail()+";"+gp.getSpecialization()+";"+gp.getYears_of_experience()+";"+gp.getYears_in_ourGym()+";"+gp.getSalary());
+                }
+                else{
+                    System.out.println("[Trainer]"+trainer.getTrainer_id()+";"+trainer.getName()+";"+trainer.getAge()+";"+trainer.getEmail()+";"+trainer.getSpecialization()+";"+trainer.getYears_of_experience()+";"+trainer.getYears_in_ourGym()+";"+trainer.getSalary());
+                }
             }
         }
     }
