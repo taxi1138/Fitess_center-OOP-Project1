@@ -13,9 +13,9 @@ public class PersonalTrainer extends Trainer {
 
     public PersonalTrainer(String name, int age, String email, String specialization, int salary, int years_of_experience, int years_in_ourGym, int current_clients, int max_amount_of_clients, int rating){
         super(name, age, email, specialization, years_in_ourGym, years_of_experience, salary);
-        this.current_clients = current_clients;
-        this.max_amount_of_clients = max_amount_of_clients;
-        this.rating = rating;
+        setCurrent_clients(current_clients);
+        setMax_amount_of_clients(max_amount_of_clients);
+        setRating(rating);
     }
 
     public int getCurrent_clients(){

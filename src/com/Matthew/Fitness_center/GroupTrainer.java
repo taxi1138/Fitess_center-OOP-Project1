@@ -10,8 +10,8 @@ public class GroupTrainer extends Trainer {
 
     public GroupTrainer(String name, int age, String email, String specialization, int years_of_experience, int years_in_ourGym, int current_groups, int average_rating, int salary){
         super(name, age, email, specialization, years_in_ourGym, years_of_experience, salary);
-        this.current_groups = current_groups;
-        this.average_rating = average_rating;
+        setCurrent_groups(current_groups);
+        setAverage_rating(average_rating);
     }
 
     public int getCurrent_groups(){
@@ -21,7 +21,7 @@ public class GroupTrainer extends Trainer {
         return average_rating;
     }
 
-    public void setCurrent_clients(int current_groups){
+    public void setCurrent_groups(int current_groups){
         if(current_groups>=0){
             this.current_groups = current_groups;
         }
