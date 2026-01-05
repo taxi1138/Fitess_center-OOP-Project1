@@ -6,7 +6,7 @@ import java.time.LocalDate;
 public class Main {
     private static ArrayList<Member> Members = new ArrayList<>();
     private static ArrayList<Membership> Memberships = new ArrayList<>();
-    static ArrayList<Trainer> Trainers = new ArrayList<>();
+    private static ArrayList<Trainer> Trainers = new ArrayList<>();
     private static Scanner sc = new Scanner(System.in);
 
 
@@ -22,6 +22,7 @@ public class Main {
         Trainers.add(new Trainer("Avgustin", 45, "MiliyAvgustin@mail.ru", "Pilates", 4, 12, 500000));
         Trainers.add(new PersonalTrainer("John Smith", 28, "john@gym.com", "Weight Training", 150000, 5, 2, 8, 12, 9));
         Trainers.add(new PersonalTrainer("Emily Johnson", 32, "emily@gym.com", "Yoga & Pilates", 145000, 8, 1, 5, 10, 6));
+        Trainers.add(new GroupTrainer("frodo", 18, "theRingTempts@mail.ru", "Fitness", 2, 2, 3, 8, 165000));
 
         Trainer trainer = new Trainer("Alex", 30, "alex@gym.com", "General", 2, 4, 140000);
         PersonalTrainer pt = new PersonalTrainer("John", 28, "john@gym.com", "Weights",

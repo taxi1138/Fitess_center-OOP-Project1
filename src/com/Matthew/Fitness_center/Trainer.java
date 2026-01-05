@@ -1,7 +1,7 @@
 package com.Matthew.Fitness_center;
 import java.util.Scanner;
 
-import static com.Matthew.Fitness_center.Main.Trainers;
+
 
 public class Trainer {
     private int trainer_id;

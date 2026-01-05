@@ -3,7 +3,7 @@ package com.Matthew.Fitness_center;
 import java.util.Locale;
 import java.util.Scanner;
 
-import static com.Matthew.Fitness_center.Main.Trainers;
+
 
 public class PersonalTrainer extends Trainer {
     private int current_clients;
