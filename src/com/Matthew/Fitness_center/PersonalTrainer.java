@@ -66,7 +66,7 @@ public class PersonalTrainer extends Trainer {
 
     @Override
     public void checkSalary() {
-        if (getSalary() > 60000 && current_clients > 8) {
+        if (getSalary() > 160000 && current_clients > 8) {
             System.out.println(getName() + " earns premium as a busy personal trainer.");
         } else {
             System.out.println(getName() + " has standard personal trainer earnings.");
