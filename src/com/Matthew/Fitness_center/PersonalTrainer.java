@@ -29,30 +29,27 @@ public class PersonalTrainer extends Trainer {
     }
 
     public void setCurrent_clients(int current_clients){
-        if (current_clients>=0){
-            this.current_clients = current_clients;
+        if (current_clients < 0){
+            throw new IllegalArgumentException("cannot be less than 0!");
         }
         else{
-            this.current_clients = 0;
-            System.out.println("Invalid input for the number of current clients. It is set to 0 by default");
+            this.current_clients = current_clients;
         }
     }
     public void setMax_amount_of_clients(int max_amount_of_clients){
-        if (max_amount_of_clients >= 0){
-            this.max_amount_of_clients = max_amount_of_clients;
+        if (max_amount_of_clients < 0){
+            throw new IllegalArgumentException("cannot be less than 0!");
         }
         else{
-            this.max_amount_of_clients = 0;
-            System.out.println("Invalid input for maximum number of clients. It is set to 0 by default");
+            this.max_amount_of_clients = max_amount_of_clients;
         }
     }
     public void setRating(int rating){
-        if (rating >=0 && rating <= 10){
-            this.rating = rating;
+        if (rating <0 || rating > 10){
+            throw new IllegalArgumentException("cannot be less than 0 or greater than 10!");
         }
         else{
-            this.rating = 0;
-            System.out.println("Invalid input for rating(should be 0-10). It is set to 0 by default");
+            this.rating = rating;
         }
     }
     @Override
@@ -72,6 +69,7 @@ public class PersonalTrainer extends Trainer {
             System.out.println(getName() + " has standard personal trainer earnings.");
         }
     }
+
 }
 
 

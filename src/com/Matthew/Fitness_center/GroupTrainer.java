@@ -21,21 +21,19 @@ public class GroupTrainer extends Trainer {
     }
 
     public void setCurrent_groups(int current_groups){
-        if(current_groups>=0){
-            this.current_groups = current_groups;
+        if(current_groups<0){
+            throw new IllegalArgumentException("cannot be less than 0!");
         }
         else{
-            System.out.println("Invalid input for the number of current groups. It is set to 0 by default");
-            this.current_groups = 0;
+            this.current_groups = current_groups;
         }
     }
     public void setAverage_rating(int average_rating){
-        if (average_rating >= 0 && average_rating<= 10){
-            this.average_rating = average_rating;
+        if (average_rating < 0 || average_rating> 10){
+            throw new IllegalArgumentException("cannot be less than 0 or greater than 10!");
         }
         else{
-            System.out.println("Invalid input for average rating of a group trainer. It was set to 0 by default");
-            this.average_rating = 0;
+            this.average_rating = average_rating;
         }
     }
     @Override

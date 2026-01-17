@@ -21,36 +21,36 @@ public class Member {
         return name;
     }
     public void setName(String name){
-        if (name != null && !name.trim().isEmpty()){
-            this.name = name;
+        if (name == null || name.trim().isEmpty()){
+            throw new IllegalArgumentException("cannot be left empty");
         }
         else{
-            System.out.println("The input for name is not valid, name is set to empty string");
-            this.name = "InvaildName";
+            this.name = name;
         }
     }
     public int getAge(){
         return age;
     }
     public void setAge(int age){
-        if (age > 0){
-            this.age = age;
+        if (age < 0){
+            throw new IllegalArgumentException("cannot be less than 0!");
         }
         else{
-            System.out.println("age cannot be negative. Age is set to 0");
-            this.age = 0;
+            this.age = age;
         }
     }
     public String getEmail(){
         return email;
     }
     public void setEmail(String email){
-        if (email.contains("@")){
-            this.email = email;
+        if (!email.contains("@")){
+            throw new IllegalArgumentException("Must contain the @ symbol!");
+        }
+        else if( email == null || email.trim().isEmpty()){
+            throw new IllegalArgumentException("Cannot be left empty!");
         }
         else{
-            System.out.println("Invalid email. Must contain @ symbol. Email is set to InvalidEmail");
-            this.email = "InvalidEmail";
+            this.email = email;
         }
     }
 }

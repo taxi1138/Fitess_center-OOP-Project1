@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 
 
-public class Trainer {
+public abstract class Trainer {
     private int trainer_id;
     protected String name;
     protected int age;
@@ -14,7 +14,7 @@ public class Trainer {
     private static int trainer_id_count = 1;
     private double salary;
 
-    public Trainer(String name, int age, String email, String specialization, int years_in_ourGym, int years_of_experience, int salary){
+    public Trainer(String name, int age, String email, String specialization, int years_in_ourGym, int years_of_experience, double salary){
         this.trainer_id = trainer_id_count;
         setName(name);
         setAge(age);
@@ -32,13 +32,13 @@ public class Trainer {
     }
 
     public void setYears_in_ourGym(int years_in_ourGym){
-        if (years_in_ourGym >= 0) {
+        if (years_in_ourGym < 0){
+            throw new IllegalArgumentException("cannot be less than 0!");
+        }
+        else {
             this.years_in_ourGym = years_in_ourGym;
         }
-        else{
-            System.out.println("Invalid input for (years_in_our_gym). It is set to 0 by default");
-            this.years_in_ourGym = 0;
-        }
+
     }
 
     public double getSalary(){
@@ -46,12 +46,11 @@ public class Trainer {
     }
 
     public void setSalary(double salary){
-        if (salary >= 0){
-            this.salary = salary;
+        if (salary <= 0){
+            throw new IllegalArgumentException("cannot be less than 0 or equal to 0!");
         }
         else{
-            System.out.println("Invalid input for salary. It is set to 150000 by default");
-            this.salary = 150000;
+            this.salary = salary;
         }
     }
 
@@ -60,12 +59,11 @@ public class Trainer {
     }
 
     public void setYears_of_experience(int years_of_experience){
-        if(years_of_experience >= 0){
-            this.years_of_experience = years_of_experience;
+        if (years_of_experience < 0){
+            throw new IllegalArgumentException("cannot be less than 0!");
         }
         else{
-            System.out.println("invalid input for years_of_experience. It is set to 0 by default");
-            this.years_of_experience = 0;
+            this.years_of_experience = years_of_experience;
         }
     }
 
@@ -78,12 +76,11 @@ public class Trainer {
     }
 
     public void setName(String name){
-        if (name != null && !name.trim().isEmpty()){
-            this.name = name;
+        if (name == null || name.trim().isEmpty()){
+            throw new IllegalArgumentException("Name cannot be left empty!");
         }
         else{
-            this.name = "Unknown";
-            System.out.println("Invalid input for Name. It was set to Unknown");
+            this.name = name;
         }
     }
 
@@ -92,12 +89,11 @@ public class Trainer {
     }
 
     public void setAge(int age){
-        if (age >= 0){
-            this.age = age;
+        if (age < 0){
+            throw new IllegalArgumentException("cannot be less than 0!");
         }
         else{
-            this.age = 18;
-            System.out.println("Invalid input for age. It was set to 18 by default");
+            this.age = age;
         }
 
     }
@@ -107,12 +103,14 @@ public class Trainer {
     }
 
     public void setEmail(String email){
-        if (email.contains("@")){
-            this.email = email;
+        if (!email.contains("@")){
+            throw new IllegalArgumentException("Must contain the @ symbol!");
+        }
+        else if( email == null || email.trim().isEmpty()){
+            throw new IllegalArgumentException("Cannot be left empty!");
         }
         else{
-            this.email = "Unknown";
-            System.out.println("Invalid input for email. It was set to Unknown");
+            this.email = email;
         }
     }
 
@@ -121,16 +119,15 @@ public class Trainer {
     }
 
     public void setSpecialization(String specialization){
-        if (specialization != null && !specialization.trim().isEmpty()){
-            this.specialization = specialization;
+        if (specialization == null || specialization.trim().isEmpty()){
+            throw new IllegalArgumentException("Cannot be left empty!");
         }
         else{
-            this.specialization = "Unknown";
-            System.out.println("Invalid input for specialization. It was set to Unknown by default");
+            this.specialization = specialization;
         }
     }
 
-    public void salaryRaise(Trainer trainer){
+    public void salaryRaise(Trainer trainer) {
         System.out.println("Your current salary: "+ trainer.getSalary()+" are you sure you want to apply for a raise?");
         Scanner sc = new Scanner(System.in);
         String decision = sc.next().toLowerCase();
@@ -148,20 +145,8 @@ public class Trainer {
         }
 
     }
-    public void checkExperience() {
-        if (years_of_experience > 5) {
-            System.out.println(name + " is an experienced trainer.");
-        } else {
-            System.out.println(name + " is still building experience.");
-        }
-    }
 
-    public void checkSalary() {
-        if (salary > 150000) {
-            System.out.println(name + " has a high salary.");
-        } else {
-            System.out.println(name + " has a standard salary.");
-        }
-    }
+    public abstract void checkExperience();
+    public abstract void checkSalary();
 
 }

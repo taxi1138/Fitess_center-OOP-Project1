@@ -22,12 +22,11 @@ public class Membership {
     }
 
     public void setMembership_type(String membership_type) {
-        if (membership_type != null && !membership_type.trim().isEmpty()){
-            this.membership_type = membership_type;
+        if (membership_type == null || membership_type.trim().isEmpty()){
+            throw new IllegalArgumentException("cannot be left empty!");
         }
         else{
-            System.out.println("Invalid membership type. It is set to InvalidMembershipType");
-            this.membership_type = "InvalidMembershipType";
+            this.membership_type = membership_type;
         }
     }
 
@@ -36,12 +35,12 @@ public class Membership {
     }
 
     public void setMembership_duration_days(int membership_duration_days) {
-        if (membership_duration_days > 0){
-            this.membership_base_duration_days = membership_duration_days;
+        if (membership_duration_days < 0){
+            throw new IllegalArgumentException("cannot be less than 0!");
         }
         else{
-            System.out.println("Invalid input for membership duration. It is set to 0");
-                this.membership_base_duration_days = 0;
+
+            this.membership_base_duration_days = membership_duration_days;
         }
     }
 
@@ -50,12 +49,12 @@ public class Membership {
     }
 
     public void setSubscription_date(LocalDate subscription_date) {
-        if (subscription_date.isBefore(LocalDate.now())){
-            this.subscription_date = subscription_date;
+        if (subscription_date.isAfter(LocalDate.now())){
+            throw new IllegalArgumentException("Date cannot be set to a future date!");
         }
         else{
-            this.subscription_date = LocalDate.now();
-            System.out.println("The date is Invalid. It is set to present date by default");
+            this.subscription_date = subscription_date;
+
         }
     }
 
@@ -64,12 +63,11 @@ public class Membership {
     }
 
     public void setExpiration_date(LocalDate expiration_date) {
-        if (expiration_date.isBefore(LocalDate.now())){
-            this.expiration_date = expiration_date;
+        if (expiration_date.isAfter(LocalDate.now())){
+            throw new IllegalArgumentException("Date cannot be set to a future date");
         }
         else{
-            this.expiration_date = getSubscription_date().plusDays(30);
-            System.out.println("Expiration date is invalid. It is set to current date + 30 days by default");
+            this.expiration_date = expiration_date;
         }
     }
 
@@ -78,12 +76,11 @@ public class Membership {
     }
 
     public void setStatus(String status) {
-        if (status != null && !status.trim().isEmpty()){
-            this.status = status;
+        if (status == null || status.trim().isEmpty()){
+            throw new IllegalArgumentException("cannot be left empty!");
         }
         else{
-            this.status = "Unknown";
-            System.out.println("Input for status is invalid. It is set to Unknown by default");
+            this.status = status;
         }
     }
 
