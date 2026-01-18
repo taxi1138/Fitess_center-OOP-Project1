@@ -1,5 +1,5 @@
-package menu;
-import com.Matthew.Fitness_center.*;
+package com.Matthew.Fitness_center.menu;
+import com.Matthew.Fitness_center.classes.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;

@@ -1,12 +1,9 @@
 package com.Matthew.Fitness_center;
-import menu.Busy;
-import menu.Fitness_Center_Menu;
-import menu.Menu;
-import menu.TrainerMenu;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.time.LocalDate;
+import com.Matthew.Fitness_center.menu.Busy;
+import com.Matthew.Fitness_center.menu.Fitness_Center_Menu;
+import com.Matthew.Fitness_center.menu.Menu;
+import com.Matthew.Fitness_center.menu.TrainerMenu;
 
 public class Main {
     public static void main(String[] args) {

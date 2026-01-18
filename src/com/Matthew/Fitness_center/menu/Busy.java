@@ -1,6 +1,4 @@
-package menu;
-
-import com.Matthew.Fitness_center.Trainer;
+package com.Matthew.Fitness_center.menu;
 
 public interface Busy {
     void work(int index);

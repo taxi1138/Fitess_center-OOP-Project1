@@ -1,8 +1,8 @@
-package menu;
+package com.Matthew.Fitness_center.menu;
 
-import com.Matthew.Fitness_center.Trainer;
+import com.Matthew.Fitness_center.classes.Trainer;
 
-import static menu.Fitness_Center_Menu.Trainers;
+import static com.Matthew.Fitness_center.menu.Fitness_Center_Menu.Trainers;
 
 public class TrainerMenu implements Busy{
 

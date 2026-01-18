@@ -1,4 +1,4 @@
-package com.Matthew.Fitness_center;
+package com.Matthew.Fitness_center.classes;
 import java.time.LocalDate;
 import java.util.Scanner;
 

@@ -1,6 +1,4 @@
-package com.Matthew.Fitness_center;
-
-import java.util.Scanner;
+package com.Matthew.Fitness_center.classes;
 
 
 public class GroupTrainer extends Trainer {

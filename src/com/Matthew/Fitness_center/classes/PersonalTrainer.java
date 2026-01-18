@@ -1,8 +1,4 @@
-package com.Matthew.Fitness_center;
-
-import java.util.Locale;
-import java.util.Scanner;
-
+package com.Matthew.Fitness_center.classes;
 
 
 public class PersonalTrainer extends Trainer {

@@ -1,4 +1,4 @@
-package com.Matthew.Fitness_center;
+package com.Matthew.Fitness_center.classes;
 
 public class Member {
     private int id;

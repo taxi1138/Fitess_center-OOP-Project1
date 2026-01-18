@@ -1,4 +1,4 @@
-package menu;
+package com.Matthew.Fitness_center.menu;
 
 public interface Menu {
     void displayMenu();
